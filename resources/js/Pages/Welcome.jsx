@@ -42,13 +42,13 @@ export default function Welcome(props) {
                 </div>
                 </div>
             </div>
-            <div className='sm:flex flex-wrap bg-brown h-fit'>
-            <div className='sm:flex-grow sm:h-min md:h-80 md:w-2/6 min-w bg-brown text-tan flex items-center justify-center'>
-                <div className='font-kadwa tracking-widest h-min text-2xl'>
+            <div className='sm:flex flex-wrap bg-brown h-fit items-center'>
+            <div className='sm:flex-grow sm:h-min md:h-80 md:w-2/6 min-w bg-brown text-tan flex justify-center '>
+                <div className='font-kadwa tracking-widest h-min text-2xl lg:text-3xl xl:text-4xl'>
                 <h2 className='text-center'>Hours:</h2>
-                <h3 className='text-center mt-3'>Sun-Mon: 11-9</h3>
-                <h3 className='text-center mt-3'>Tues-Thur: 11-10</h3>
-                <h3 className='text-center mt-3'>Fri-Sat: 11-11</h3>
+                <h3 className='text-center mt-10'>Sun-Mon: 11-9</h3>
+                <h3 className='text-center mt-10'>Tues-Thur: 11-10</h3>
+                <h3 className='text-center mt-10'>Fri-Sat: 11-11</h3>
                 </div>
             </div>
             <div className='flex sm:flex-grow flex-wrap items-center max-h-full md:w-2/6 '>
@@ -56,7 +56,7 @@ export default function Welcome(props) {
             </div>
             <div className='justify-center sm:flex-grow flex-wrap sm:h-min md:h-min md:w-2/6 bg-brown text-tan text-center '>
                 <div className='flex justify-center'>
-                    <img className='relative max-w-[80%]' src="map.png"></img>
+                    <img className='relative max-w-[80%] mt-5 mb-5' src="map.png"></img>
                 </div>
                 <div className='font-kadwa min-w-full text-xl mb-2'>
                     <h2>Address:</h2>
