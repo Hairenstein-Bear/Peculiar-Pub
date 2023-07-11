@@ -4,7 +4,8 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-
+use App\Http\Controllers\LoyaltyController;
+use App\Http\Controllers\UserLoyaltyController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,6 +34,9 @@ Route::get('/addpoints', function () {
     return Inertia::render('AddPoints');
 })->middleware(['auth', 'verified'])->name('addpoints');
 
+Route::get('add-loyalty-points-form', [LoyaltyController::class, 'index']);
+Route::post('store-form', [LoyaltyController::class, 'store']);
+
 Route::get('/lookuppoints', function () {
     return Inertia::render('LookupPoints');
 })->middleware(['auth', 'verified'])->name('lookuppoints');
@@ -40,6 +44,10 @@ Route::get('/lookuppoints', function () {
 Route::get('/redeempoints', function () {
     return Inertia::render('RedeemPoints');
 })->middleware(['auth', 'verified'])->name('RedeemPoints');
+
+// Route::get('/loyalty', [LoyaltyController::class, ''])->name('loyalty.index');
+
+Route::get('lookup-loyalty-points', [UserLoyaltyController::class, 'loyaltyLookup']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

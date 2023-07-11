@@ -13,10 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('loyalties', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-            $table->point_total();
+        Schema::table('loyalty_points', function (Blueprint $table) {
+            $table->foreignId('user_id')->nullable()->constrained();
         });
     }
 
@@ -27,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('loyalties');
+        Schema::table('loyalty_points', function (Blueprint $table) {
+            //
+        });
     }
 };

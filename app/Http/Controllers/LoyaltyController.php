@@ -2,84 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\loyalty;
+use App\Models\LoyaltyPoints;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 class LoyaltyController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        return view('add-loyalty-points-form');
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\loyalty  $loyalty
-     * @return \Illuminate\Http\Response
-     */
-    public function show(loyalty $loyalty)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\loyalty  $loyalty
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(loyalty $loyalty)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\loyalty  $loyalty
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, loyalty $loyalty)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\loyalty  $loyalty
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(loyalty $loyalty)
-    {
-        //
+        $user_id = Auth::user()->id;
+        $post = new LoyaltyPoints;
+        $post->points = $request->points;
+        $post->user_id = $user_id;
+        $post->save();
+        return redirect('add-loyalty-points-form')->with('status','Points have been added');
     }
 }
